@@ -18,7 +18,9 @@ export default {
     console.log('beforeCreate');
   },
   created(){
-    console.log('created');
+    this.$http.get('http://localhost:3000/categorias').then(res => {
+      this.categorias = res.body;
+    });
   },
   beforeMount(){
     console.log('beforeMount');
@@ -27,38 +29,7 @@ export default {
     return {
       nomeProjeto: 'Netflix com Vue',
       intervalo:null,
-      categorias:[
-        {
-          "id":1,
-          "titulo":"Terror",
-          "filmes":[
-            {
-              "id":1,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":2,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":3,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":4,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":5,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":6,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":7,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            },
-            {
-              "id":8,"titulo":"It: A Coisa","imagem":"http://br.web.img2.acsta.net/pictures/17/03/29/07/56/333222.jpg"
-            }
-          ]
-        }
-      ]
+      categorias:[]
     }
   }
 }
